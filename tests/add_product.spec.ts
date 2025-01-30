@@ -1,17 +1,10 @@
-const { expect, describe, beforeEach, test } = require("@playwright/test");
+import { loginUser } from "./helper";
 
-// Login to the vendor dashboard
-test.beforeEach(async ({ page }) => {
-  await page.goto("https://e-ticket.staging.dokandev.com/vendor/login");
-  // Fill in email and password and login
-  await page.fill("#login-email", "shahedthedev@gmail.com");
-  await page.fill("#login-password", "Shahed999#");
-  await page.click('button[type="submit"]');
-  await page.waitForNavigation();
-});
+const { expect, describe, beforeEach, test } = require("@playwright/test");
 
 describe("Handle add a product with the require information within the vendor dashboard", () => {
   test.beforeEach(async ({ page }) => {
+    await loginUser(page, "shahedthedev@gmail.com", "Shahed999#");
     await page.waitForSelector(".sidebar");
     await page.locator(".sidebar-link-title", { hasText: "Products" }).click();
     await page
@@ -58,14 +51,14 @@ describe("Handle add a product with the require information within the vendor da
     await page.waitForNavigation();
     expect(await page.getByText(productName)); // varify that the product is added
   });
+});
 
-  test("Add to Cart functionality Dokan Plugin", async ({ page }) => {
-    await page.locator('//div[contains(@class, "sidebar")]//a[p]').click();
-    const latestProduct = await page.getByText(productName);
-    await latestProduct.click();
-    const addToCartButton = await page.locator("button", {
-      hasText: "Add To Cart",
-    });
-    await addToCartButton.click();
+test("Add to Cart functionality Dokan Plugin", async ({ page }) => {
+  await page.locator('//div[contains(@class, "sidebar")]//a[p]').click();
+  const latestProduct = await page.getByText('Test Product 100');
+  await latestProduct.click();
+  const addToCartButton = await page.locator("button", {
+    hasText: "Add to Cart",
   });
+  await addToCartButton.click();
 });
