@@ -51,14 +51,13 @@ describe("Handle add a product with the require information within the vendor da
     await page.waitForNavigation();
     expect(await page.getByText(productName)); // varify that the product is added
   });
-});
-
-test("Add to Cart functionality Dokan Plugin", async ({ page }) => {
-  await page.locator('//div[contains(@class, "sidebar")]//a[p]').click();
-  const latestProduct = await page.getByText('Test Product 100');
-  await latestProduct.click();
-  const addToCartButton = await page.locator("button", {
-    hasText: "Add to Cart",
+  test("Add to Cart functionality Dokan Plugin", async ({ page }) => {
+    await page.locator('//div[contains(@class, "sidebar")]//a[p]').click();
+    const latestProduct = await page.getByText(productName);
+    await latestProduct.click();
+    const addToCartButton = await page.locator("button", {
+      hasText: "Add to Cart",
+    });
+    await addToCartButton.click();
   });
-  await addToCartButton.click();
 });
