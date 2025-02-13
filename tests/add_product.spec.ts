@@ -4,7 +4,7 @@ const { expect, describe, beforeEach, test } = require("@playwright/test");
 
 describe("Handle add a product with the require information within the vendor dashboard", () => {
   test.beforeEach(async ({ page }) => {
-    await loginUser(page, "shahedthedev@gmail.com", "Shahed999#");
+    await loginUser(page, process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
     await page.waitForSelector(".sidebar");
     await page.locator(".sidebar-link-title", { hasText: "Products" }).click();
     await page
