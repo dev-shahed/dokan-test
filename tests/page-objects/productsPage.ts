@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 import { generateProduct } from "../util/faker";
 
 export class ProductPage {
@@ -24,25 +24,33 @@ export class ProductPage {
     let type = "Standard";
 
     await this.page.getByRole("link", { name: "Add Product" }).click();
-    // await this.page.fill("#product-name", title);
-    // const productType = this.page.getByRole("radio", { name: type });
-    // await productType.click();
-    // await this.page.fill(".ql-editor", description);
-    // await this.page.locator(".ql-blank").waitFor({ state: "detached" });
-
-    // // await page.locator('input[placeholder="Search"]').click();
-    // await this.selectCategory("Uncategorized");
-
-    // await this.page.fill("#regular-price", regular_price.toString());
-    // await this.page.fill("#sale-price", sale_price.toString());
-    // await this.page.fill("#sku", sku);
-    // await this.page.fill("#low-stock-threshold", barcode);
+    await this.page.fill("#product-name", title);
+    const productType = this.page.getByRole("radio", { name: type });
+    await productType.click();
+    await this.page.fill(".ql-editor", description);
+    await this.page.locator(".ql-blank").waitFor({ state: "detached" });
+    await this.selectCategory("Uncategorized");
+    await this.page.fill("#regular-price", regular_price.toString());
+    await this.page.fill("#sale-price", sale_price.toString());
+    await this.page.fill("#sku", sku);
+    await this.page.fill("#low-stock-threshold", barcode);
     await this.selectShipping("Standard Free");
+    //status
+    const statusArea = this.page.getByText("Draft");
+    await statusArea.click();
+    await this.page.getByText("Published").click();
+    await this.page.fill("#shipping-height", dimensions.height.toString());
+    await this.page.fill("#shipping-width", dimensions.width.toString());
+    await this.page.fill("#shipping-length", dimensions.length.toString());
+    await this.page.locator("button", { hasText: "Create" }).first().click();
+    await this.page.waitForURL("**/products");
+    await this.page.waitForSelector("table tbody tr", { timeout: 5000 });
+    await expect(this.page.getByText(title)).toBeVisible();
   }
 
   //helper for select categories..
 
-  async selectCategory(categoryName: string = "Uncategorized") {
+  async selectCategory(categoryName: string) {
     const categoryInput = this.page.locator('input[placeholder="Search"]');
     await categoryInput.click();
     await this.page.waitForSelector("ul li", {
@@ -55,15 +63,12 @@ export class ProductPage {
     await categoryOption.click();
   }
   async selectShipping(name: string) {
-    // Click the dropdown to open options
-    const shippingDropdown = this.page.locator(".css-15t20dc-control"); // Adjust this if necessary
-    await shippingDropdown.click();
+    const label = this.page.locator('label:text("Shipping Profile")');
+    await this.page.pause();
 
-    // Wait for the options list to appear
-    await this.page.waitForSelector('[role="listbox"]', { state: "visible" });
-
-    // Select the desired option
-    const option = this.page.getByRole("option", { name: name });
-    await option.click();
+    // Click on the dropdown (better than clicking the icon)
+    await label.locator("xpath=following-sibling::div").click();
+    // Select the option by text
+    await this.page.getByRole("option", { name: name }).click();
   }
 }
