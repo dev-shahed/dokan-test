@@ -1,0 +1,41 @@
+{
+  "cookies": [
+    {
+      "name": "ph_phc_2EelKZuDE2ONKu3QpQ19U4yEfF86y1tyfI31TexOhAo_posthog",
+      "value": "%7B%22distinct_id%22%3A%2201950961-e6c2-7235-a463-70883986becb%22%2C%22%24sesid%22%3A%5B1739619167291%2C%2201950961-e6e0-7fb0-8743-382ec4053f39%22%2C1739619165920%5D%7D",
+      "domain": ".dokandev.com",
+      "path": "/",
+      "expires": 1771155167,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://e-ticket.staging.dokandev.com",
+      "localStorage": [
+        {
+          "name": "i18nextLng",
+          "value": "en"
+        },
+        {
+          "name": "persist:dashboard",
+          "value": "{\"sidebar\":\"{\\\"collapsed\\\":false,\\\"open\\\":false,\\\"vendorOnboardCompletedStep\\\":0}\",\"_persist\":\"{\\\"version\\\":-1,\\\"rehydrated\\\":true}\"}"
+        },
+        {
+          "name": "persist:auth",
+          "value": "{\"user\":\"{\\\"id\\\":8248,\\\"createdAt\\\":\\\"2025-01-30T04:18:39.000Z\\\",\\\"updatedAt\\\":\\\"2025-01-30T04:18:39.000Z\\\",\\\"firstName\\\":\\\"md\\\",\\\"lastName\\\":\\\"shahed\\\",\\\"email\\\":\\\"shahedthedev@gmail.com\\\",\\\"emailVerifiedAt\\\":null,\\\"active\\\":true,\\\"role\\\":\\\"vendor\\\",\\\"mobile\\\":null,\\\"mobileVerifiedAt\\\":null,\\\"gender\\\":null,\\\"birthDate\\\":null,\\\"image\\\":null,\\\"lastOrderedAt\\\":null,\\\"verificationType\\\":null,\\\"defaultAddressId\\\":0,\\\"isTest\\\":false,\\\"relatedVendor\\\":{\\\"id\\\":7186,\\\"creatorId\\\":8248,\\\"storeName\\\":\\\"store9\\\",\\\"slug\\\":\\\"store9\\\",\\\"status\\\":\\\"active\\\",\\\"createdAt\\\":\\\"2025-01-30T04:19:25.000Z\\\",\\\"updatedAt\\\":\\\"2025-01-30T04:20:00.000Z\\\",\\\"legalBusinessName\\\":null,\\\"businessType\\\":null,\\\"rating\\\":null,\\\"reviewsCount\\\":null}}\",\"isLoggedIn\":\"true\",\"strategy\":\"\\\"vendor\\\"\",\"token\":\"\\\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3Mzk2MTkxNjcsInN1YiI6IjgyNDgiLCJ1c2VyIjp7ImlkIjo4MjQ4LCJpc093bmVyIjpmYWxzZSwiZW1haWwiOiJzaGFoZWR0aGVkZXZAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoibWQiLCJsYXN0TmFtZSI6InNoYWhlZCIsImFjdGl2ZSI6dHJ1ZSwicm9sZSI6InZlbmRvciIsInJlbGF0ZWRWZW5kb3IiOnsic3RvcmVOYW1lIjoic3RvcmU5Iiwic2x1ZyI6InN0b3JlOSIsInN0YXR1cyI6ImFjdGl2ZSIsImJ1c2luZXNzVHlwZSI6bnVsbCwiaWQiOjcxODZ9fSwiZXhwIjoxNzQwMjIzOTY3LCJhdWQiOiIzNDkiLCJpc3MiOiJzdGFnaW5nLmRva2FuZGV2LmNvbSJ9.TemkKV4pHE3A2G4hir4src1rugbx1oa8AnrK5KKEPTA\\\"\",\"intendedURL\":\"\\\"\\\"\",\"intendedURLForDashboard\":\"\\\"\\\"\",\"permissions\":\"[\\\"product.view\\\",\\\"product.create\\\",\\\"product.update\\\",\\\"product.delete\\\",\\\"product.publish\\\",\\\"product.seo.view\\\",\\\"product.seo.update\\\",\\\"product.import\\\",\\\"product.export\\\",\\\"order.view\\\",\\\"order.create\\\",\\\"order.update\\\",\\\"order.delete\\\",\\\"refund.view\\\",\\\"refund.create\\\",\\\"return.view\\\",\\\"return.create\\\",\\\"return.update\\\",\\\"shipment.view\\\",\\\"shipment.create\\\",\\\"shipment.update\\\",\\\"shipment.delete\\\",\\\"coupon.view\\\",\\\"coupon.create\\\",\\\"coupon.update\\\",\\\"coupon.delete\\\",\\\"shipping.preference.view\\\",\\\"shipping.preference.update\\\",\\\"shipping.carrier.view\\\",\\\"shipping.carrier.update\\\",\\\"shipping.profile.view\\\",\\\"shipping.profile.create\\\",\\\"shipping.profile.update\\\",\\\"shipping.profile.delete\\\",\\\"shipping.address.view\\\",\\\"shipping.address.create\\\",\\\"shipping.address.update\\\",\\\"shipping.address.delete\\\",\\\"settings.general.view\\\",\\\"settings.general.update\\\",\\\"settings.team.view\\\",\\\"settings.team.create\\\",\\\"settings.team.update\\\",\\\"settings.team.delete\\\",\\\"settings.payment.view\\\",\\\"settings.payment.update\\\",\\\"settings.payout.view\\\",\\\"settings.payout.update\\\",\\\"settings.seo.view\\\",\\\"settings.seo.update\\\",\\\"settings.address.view\\\",\\\"settings.address.multi\\\",\\\"report.view\\\"]\",\"isStandalone\":\"false\",\"_persist\":\"{\\\"version\\\":-1,\\\"rehydrated\\\":true}\"}"
+        },
+        {
+          "name": "dir",
+          "value": "ltr"
+        },
+        {
+          "name": "ph_phc_2EelKZuDE2ONKu3QpQ19U4yEfF86y1tyfI31TexOhAo_posthog",
+          "value": "{\"distinct_id\":\"01950961-e6c2-7235-a463-70883986becb\",\"$device_id\":\"01950961-e6c2-7235-a463-70883986becb\",\"$user_state\":\"anonymous\",\"$capture_rate_limit\":{\"tokens\":96.42,\"last\":1739619167291},\"$initial_campaign_params\":{},\"$initial_referrer_info\":{\"$referrer\":\"$direct\",\"$referring_domain\":\"$direct\"},\"$sesid\":[1739619167291,\"01950961-e6e0-7fb0-8743-382ec4053f39\",1739619165920],\"$client_session_props\":{\"sessionId\":\"01950961-e6e0-7fb0-8743-382ec4053f39\",\"props\":{\"initialPathName\":\"/vendor/login\",\"referringDomain\":\"$direct\"}},\"$active_feature_flags\":[],\"$enabled_feature_flags\":{},\"$feature_flag_payloads\":{},\"$session_recording_enabled_server_side\":true,\"$console_log_recording_enabled_server_side\":true,\"$session_recording_network_payload_capture\":{\"capturePerformance\":{\"network_timing\":true,\"web_vitals\":false,\"web_vitals_allowed_metrics\":null},\"recordHeaders\":true,\"recordBody\":true},\"$session_recording_canvas_recording\":{},\"$replay_sample_rate\":null,\"$replay_minimum_duration\":null,\"$autocapture_disabled_server_side\":false,\"$heatmaps_enabled_server_side\":true}"
+        }
+      ]
+    }
+  ]
+}

@@ -22,6 +22,7 @@ export class NavigatePage {
     if (!hasOpenClass?.includes("open")) {
       await groupMenuItem.click();
       await this.page.waitForTimeout(500);
+      
     }
   }
 }
