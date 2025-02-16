@@ -1,3 +1,4 @@
+import { ProductCheckout } from "./ProductCheckout";
 import { ProductPage } from "./productsPage";
 import { Page } from "@playwright/test";
 import { LoginPage } from "./loginPage";
@@ -10,12 +11,14 @@ export class PageManager {
   readonly vendorPage: VendorPage;
   readonly navigatePage: NavigatePage;
   readonly productPage: ProductPage;
+  readonly productCheckout: ProductCheckout;
   constructor(page: Page) {
     this.page = page;
     this.navigatePage = new NavigatePage(page);
     this.loginPage = new LoginPage(page);
     this.vendorPage = new VendorPage(page);
     this.productPage = new ProductPage(page);
+    this.productCheckout = new ProductCheckout(page);
   }
 
   navigateTo() {
@@ -32,5 +35,9 @@ export class PageManager {
 
   product() {
     return this.productPage;
+  }
+
+  makeCheckout() {
+    return this.productCheckout;
   }
 }

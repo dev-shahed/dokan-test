@@ -11,6 +11,10 @@ export class NavigatePage {
     await this.page.getByText("All Products").click();
   }
 
+  async storeRoute(storeName: string) {
+    await this.page.goto(`/stores/${storeName}`);
+  }
+
   //select group item or parent menu item
   async selectGroupMenuItem(menuTitle: string) {
     await this.page.waitForSelector(".sidebar");
@@ -22,7 +26,6 @@ export class NavigatePage {
     if (!hasOpenClass?.includes("open")) {
       await groupMenuItem.click();
       await this.page.waitForTimeout(500);
-      
     }
   }
 }
