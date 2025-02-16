@@ -8,7 +8,6 @@ test.describe("Login to the dashboard and navigate to the vendor page", () => {
   test("should navigate to the all products page and create a product successfully..", async ({
     page,
   }) => {
-    await page.goto("/vendor");
     const pm = new PageManager(page);
     await pm.navigateTo().productsRoute();
     await pm.productPage.addProduct();
@@ -20,7 +19,12 @@ test("go to the store and order latest product", async ({ page }) => {
   const pm = new PageManager(page);
   await pm.navigateTo().storeRoute(storeName);
   await pm.makeCheckout().addToCartAndCheckout(storeName);
+});
 
 
+test("go order confirmation page and confirm order", async ({ page }) => {
+  const pm = new PageManager(page);
+   await pm.navigatePage.orderRoute();
+   await pm.confirmOrder.confirmOrderStatus();
 
 });

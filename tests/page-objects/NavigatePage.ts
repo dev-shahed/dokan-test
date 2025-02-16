@@ -15,8 +15,13 @@ export class NavigatePage {
     await this.page.goto(`/stores/${storeName}`);
   }
 
+  async orderRoute() {
+    await this.selectGroupMenuItem("Orders");
+  }
+
   //select group item or parent menu item
   async selectGroupMenuItem(menuTitle: string) {
+    await this.page.goto("/vendor");
     await this.page.waitForSelector(".sidebar");
     const groupMenuItem = this.page.locator(".sidebar-link", {
       hasText: menuTitle,

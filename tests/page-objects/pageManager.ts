@@ -12,6 +12,7 @@ export class PageManager {
   readonly navigatePage: NavigatePage;
   readonly productPage: ProductPage;
   readonly productCheckout: ProductCheckout;
+  readonly confirmOrder: VendorPage;
   constructor(page: Page) {
     this.page = page;
     this.navigatePage = new NavigatePage(page);
@@ -19,6 +20,7 @@ export class PageManager {
     this.vendorPage = new VendorPage(page);
     this.productPage = new ProductPage(page);
     this.productCheckout = new ProductCheckout(page);
+    this.confirmOrder = new VendorPage(page)
   }
 
   navigateTo() {
@@ -39,5 +41,9 @@ export class PageManager {
 
   makeCheckout() {
     return this.productCheckout;
+  }
+
+  orderConfirmation() {
+    return this.confirmOrder;
   }
 }
