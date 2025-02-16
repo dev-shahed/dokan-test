@@ -65,10 +65,8 @@ export class ProductPage {
   async selectShipping(name: string) {
     const label = this.page.locator('label:text("Shipping Profile")');
     await this.page.pause();
-
     // Click on the dropdown (better than clicking the icon)
     await label.locator("xpath=following-sibling::div").click();
-    // Select the option by text
     await this.page.getByRole("option", { name: name }).click();
   }
 }
