@@ -26,30 +26,39 @@ export class ProductCheckout {
       .getByRole("button", { name: "Proceed to Checkout" })
       .click();
     await this.page.waitForTimeout(1000);
+
+    // Checkout page form filling
+    // Shipping address filling
     await this.page.fill("#shipping-first-name", "John");
     await this.page.fill("#shipping-last-name", "Doe");
-
     await this.page.getByRole("combobox").click();
     await this.page.getByRole("combobox").fill("United States");
     await this.page.waitForTimeout(1000);
     await this.page.getByRole("option", { name: "United States" }).click();
     await this.page.fill("#shipping-address1", "New York", { timeout: 1000 });
-
-// Ensure dropdown opens by clicking the input field
-await this.page.locator("#shipping-address1").click();
-await this.page.waitForTimeout(500); // Small delay for UI update
-
-// Ensure the listbox appears and is populated
-const listbox = await this.page.locator("[role='listbox']");
-await listbox.waitFor({ state: 'visible', timeout: 300000 });
-
-// Select the first option with text "New York"
-const firstNewYorkOption = await listbox.locator("[role='option']").filter({ hasText: "New York NY, USA" }).first();
-await firstNewYorkOption.click();
-
-
+    await this.page.locator("#shipping-address1").click();
+    await this.page.waitForTimeout(500); // Small delay for UI update
+    await this.page.locator("#shipping-address1").fill("New York");
+    await this.page.waitForTimeout(1000);
+    //Press "ArrowDown" once to highlight the first result
+    await this.page.keyboard.press("ArrowDown");
+    await this.page.waitForTimeout(500);
+    await this.page.keyboard.press("Enter");
+    await this.page.waitForTimeout(1000);
     await this.page.fill("#shipping-city", "New York");
     await this.page.fill("#shipping-postal-code", "10001");
     await this.page.getByRole("button", { name: "Continue to Orders" }).click();
+    // Order section selection..
+    const shippingOption = this.page.getByRole("radio", { name: "Free" });
+    await shippingOption.click();
+
+    await this.page
+      .getByRole("button", { name: "Continue to Payment" })
+      .click();
+
+    // Payment section filling
+    await this.page.locator("span", { hasText: "Cash On Delivery" }).click();
+    await this.page.waitForTimeout(1000);
+    await this.page.getByRole("button", { name: "Place order" }).click();
   }
 }
