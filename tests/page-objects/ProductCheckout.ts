@@ -33,8 +33,8 @@ export class ProductCheckout {
       "10001"
     );
     // Order section selection..
-    const shippingOption = this.page.getByRole("radio", { name: "Free" });
-    await shippingOption.click();
+    // const shippingOption = this.page.getByRole("radio", { name: "Free" });
+    // await shippingOption.click();
     await this.page
       .getByRole("button", { name: "Continue to Payment" })
       .click();
